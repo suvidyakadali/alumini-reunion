@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Class Reunion</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #f4efe5;
+      color: #242923;
+      font-family: Arial, sans-serif;
+    }
+    header, section, footer { padding: 24px 8%; }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #d6cdbd;
+    }
+    header a { color: inherit; margin-left: 16px; text-decoration: none; }
+    .brand { font-weight: bold; letter-spacing: 2px; }
+    .hero {
+      min-height: 440px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 32px;
+    }
+    h1, h2 { font-family: Georgia, serif; font-weight: normal; }
+    h1 { font-size: clamp(48px, 8vw, 82px); line-height: 1; }
+    h1 em, h2 em { color: #cf593c; }
+    .intro { max-width: 400px; line-height: 1.7; color: #686b61; }
+    .hero img { width: 100%; max-height: 350px; object-fit: cover; }
+    button, .button {
+      display: inline-block;
+      background: #35493d;
+      color: white;
+      padding: 14px 18px;
+      border: 0;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .details {
+      background: #35493d;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .details p { margin: 4px 0; }
+    .eyebrow { color: #cf593c; font-size: 12px; letter-spacing: 2px; }
+    .gallery, .people {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .gallery img { width: 100%; height: 190px; object-fit: cover; }
+    .card { background: #e9e1d3; padding: 10px; }
+    .people .card { background: #fffaf1; }
+    .tools { display: flex; gap: 10px; margin: 20px 0; }
+    input, select {
+      padding: 12px;
+      border: 1px solid #d6cdbd;
+      background: #fffaf1;
+    }
+    .tools input { flex: 1; }
+    .rsvp {
+      background: #dce2d6;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+    form { background: #f4efe5; padding: 24px; }
+    form label { display: block; margin: 14px 0; font-size: 14px; }
+    form input, form select { display: block; width: 100%; margin-top: 7px; }
+    #message { color: #35493d; }
+    footer { border-top: 1px solid #d6cdbd; text-align: center; }
+    @media (max-width: 650px) {
+      header { align-items: flex-start; flex-direction: column; gap: 14px; }
+      header a { margin: 0 12px 0 0; }
+      .hero, .rsvp { grid-template-columns: 1fr; }
+      .gallery, .people { grid-template-columns: 1fr 1fr; }
+      .tools { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">✳ BACK TO THE BELL</div>
+    <nav>
+      <a href="#memories">Memories</a>
+      <a href="#classmates">Classmates</a>
+      <a href="#rsvp">RSVP</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div>
+      <p class="eyebrow">CLASS OF 2001 · 25-YEAR REUNION</p>
+      <h1>Remember<br>when <em>we</em> were<br>all here?</h1>
+      <p class="intro">The lockers, the late bells, the people who made it feel like home. Let's get everyone back together.</p>
+      <a class="button" href="#rsvp">Save your seat ↗</a>
+    </div>
+    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1000&q=85" alt="Students celebrating graduation">
+  </section>
+
+  <section class="details">
+    <div><small>WHEN</small><p>Saturday, October 17, 2026</p></div>
+    <div><small>WHERE</small><p>Northwood High · Main Gym</p></div>
+    <div><small>THE PLAN</small><p>Tour, dinner, and old stories</p></div>
+  </section>
+
+  <section id="memories">
+    <p class="eyebrow">THE GOOD OLD DAYS</p>
+    <h2>Memory <em>lane</em></h2>
+    <p>Add a photo to this browser’s reunion album:</p>
+    <input type="file" id="photoInput" accept="image/*">
+    <div class="gallery" id="gallery">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=700&q=80" alt="Students in a classroom">
+        <p>One more minute before the bell...</p>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=700&q=80" alt="Friends at school">
+        <p>Always saved you a seat.</p>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=700&q=80" alt="Graduates celebrating">
+        <p>We thought the world was ours.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="classmates">
+    <p class="eyebrow">FIND YOUR PEOPLE</p>
+    <h2>Who's coming <em>back?</em></h2>
+    <div class="tools">
+      <input id="search" type="search" placeholder="Search name or hometown">
+      <select id="filter">
+        <option value="all">Everyone</option>
+        <option value="yes">Coming</option>
+        <option value="maybe">Maybe</option>
+      </select>
+    </div>
+    <div class="people" id="people"></div>
+  </section>
+
+  <section class="rsvp" id="rsvp">
+    <div>
+      <p class="eyebrow">YOUR OLD SEAT IS WAITING</p>
+      <h2>So... are<br>you <em>in?</em></h2>
+      <p>Come for dinner. Stay for the stories. We can't wait to catch up.</p>
+      <p>Saturday, October 17, 2026<br>Northwood High · Main Gym</p>
+    </div>
+    <form id="rsvpForm">
+      <h2>Save your spot</h2>
+      <label>Your name
+        <input name="name" required placeholder="Your name">
+      </label>
+      <label>Email address
+        <input name="email" type="email" required placeholder="you@example.com">
+      </label>
+      <label>Where are you these days?
+        <input name="town" placeholder="City, State">
+      </label>
+      <label>Can you make it?
+        <select name="status">
+          <option value="yes">Yes! Count me in</option>
+          <option value="maybe">I'm still figuring it out</option>
+        </select>
+      </label>
+      <button type="submit">Add me to the list ↗</button>
+      <p id="message" role="status"></p>
+    </form>
+  </section>
+
+  <footer>Made with a little nostalgia · See you in October ✳</footer>
+
+  <script>
+    const samples = [
+      { name: "Jamie Chen", town: "Portland, OR", status: "yes" },
+      { name: "Morgan Ellis", town: "Chicago, IL", status: "yes" },
+      { name: "Avery Thompson", town: "Brooklyn, NY", status: "maybe" },
+      { name: "Casey Rivera", town: "Denver, CO", status: "yes" },
+      { name: "Riley Brooks", town: "Austin, TX", status: "maybe" }
+    ];
+
+    const saved = JSON.parse(localStorage.getItem("classmates") || "[]");
+    const classmates = [...saved, ...samples];
+    const people = document.querySelector("#people");
+
+    function showClassmates() {
+      const search = document.querySelector("#search").value.toLowerCase();
+      const filter = document.querySelector("#filter").value;
+
+      const found = classmates.filter(person =>
+        (person.name + " " + person.town).toLowerCase().includes(search) &&
+        (filter === "all" || person.status === filter)
+      );
+
+      people.innerHTML = found.map(person => `
+        <div class="card">
+          <strong>${person.name}</strong>
+          <p>${person.town || "Hometown not added"}</p>
+          <small>${person.status === "yes" ? "COMING" : "MAYBE"}</small>
+        </div>
+      `).join("") || "<p>No classmates found.</p>";
+    }
+
+    document.querySelector("#search").addEventListener("input", showClassmates);
+    document.querySelector("#filter").addEventListener("change", showClassmates);
+    showClassmates();
+
+    document.querySelector("#rsvpForm").addEventListener("submit", event => {
+      event.preventDefault();
+      const form = event.currentTarget;
+      const data = new FormData(form);
+      const person = {
+        name: data.get("name").trim(),
+        email: data.get("email").trim(),
+        town: data.get("town").trim(),
+        status: data.get("status")
+      };
+
+      if (saved.some(item => item.email.toLowerCase() === person.email.toLowerCase())) {
+        document.querySelector("#message").textContent = "That email is already on the list.";
+        return;
+      }
+
+      saved.unshift(person);
+      classmates.unshift(person);
+      localStorage.setItem("classmates", JSON.stringify(saved));
+      showClassmates();
+      document.querySelector("#message").textContent = "You're on the list. See you soon!";
+      form.reset();
+    });
+
+    document.querySelector("#photoInput").addEventListener("change", event => {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = () => {
+        const photos = JSON.parse(localStorage.getItem("photos") || "[]");
+        photos.push({ name: file.name, src: reader.result });
+
+        try {
+          localStorage.setItem("photos", JSON.stringify(photos));
+          addPhoto({ name: file.name, src: reader.result });
+        } catch {
+          alert("That photo is too large to save in this browser.");
+        }
+      };
+      reader.readAsDataURL(file);
+    });
+
+    function addPhoto(photo) {
+      const card = document.createElement("div");
+      card.className = "card";
+
+      const image = document.createElement("img");
+      image.src = photo.src;
+      image.alt = "Classmate memory: " + photo.name;
+
+      const caption = document.createElement("p");
+      caption.textContent = photo.name;
+
+      card.append(image, caption);
+      document.querySelector("#gallery").append(card);
+    }
+
+    JSON.parse(localStorage.getItem("photos") || "[]").forEach(addPhoto);
+  </script>
+</body>
+</html>
